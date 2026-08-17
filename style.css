@@ -31,6 +31,7 @@
 html {
     font-size: 16px;
     overflow-x: hidden;
+    overscroll-behavior: none;
 }
 
 /* Lenis smooth scrolling requires html and body to be auto */
@@ -98,7 +99,7 @@ h6 {
 
 .split-text {
     /* Preparation for SplitType */
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(0 -20%, 100% -20%, 100% 120%, 0% 120%);
 }
 
 .char,
@@ -412,7 +413,7 @@ h6 {
    ========================================== */
 .minimal-hero {
     width: 100%;
-    height: 100vh;
+    height: 100dvh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -569,14 +570,15 @@ h6 {
     justify-content: center;
     text-align: center;
     gap: 24px;
-    margin-bottom: 10vh;
+    margin-bottom: 5vh;
 }
 
 .services-title h2 {
-    font-size: clamp(3rem, 6vw, 6rem);
-    line-height: 1.1;
+    font-size: clamp(3rem, 7vw, 6rem);
+    line-height: 1;
     color: var(--c-darkblue);
-    letter-spacing: -0.03em;
+    letter-spacing: -0.05em;
+    font-weight: 800;
 }
 
 .services-tag {
@@ -885,11 +887,12 @@ h6 {
 }
 
 .about-content h2 {
-    font-size: clamp(3rem, 6vw, 6rem);
-    line-height: 1.1;
+    font-size: clamp(3rem, 7vw, 6rem);
+    line-height: 1;
     color: var(--c-darkblue);
     margin-bottom: 40px;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.05em;
+    font-weight: 800;
 }
 
 .about-text-wrap p {
@@ -953,11 +956,12 @@ h6 {
 }
 
 .contact-info h2 {
-    font-size: clamp(3rem, 6vw, 6rem);
-    line-height: 1.1;
+    font-size: clamp(3rem, 7vw, 6rem);
+    line-height: 1;
     color: var(--c-darkblue);
     margin-bottom: 60px;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.05em;
+    font-weight: 800;
 }
 
 .info-block {
@@ -1275,7 +1279,7 @@ h6 {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100dvh;
     /* Matches footer height */
     display: flex;
     justify-content: center;
@@ -1301,7 +1305,7 @@ h6 {
 .awwwards-footer {
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: 100dvh;
     background-color: var(--c-darkblue);
     /* Fallback */
     overflow: hidden;
@@ -1479,6 +1483,11 @@ h6 {
     .footer-col-content.empty {
         display: none;
     }
+
+    .services-header {
+        margin-bottom: 3vh;
+        gap: 12px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1487,10 +1496,14 @@ h6 {
     }
 
     /* Hide grid lines on mobile to avoid clutter */
-    .footer-top-info,
-    .footer-bottom-info {
+    .footer-top-info {
         grid-template-columns: 1fr;
         gap: 30px;
+    }
+
+    .footer-bottom-info {
+        grid-template-columns: 1fr;
+        gap: 12px;
     }
 
     .footer-huge-text {
@@ -1502,7 +1515,7 @@ h6 {
     }
 
     .footer-bottom-info {
-        padding-bottom: 60px;
+        padding-bottom: 24px;
     }
 
     .footer-col-content {
@@ -1649,4 +1662,18 @@ h6 {
 .footer-col-content.socials a:hover {
     color: var(--c-yellow);
     transform: translateY(-3px) scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .services-section {
+        padding-top: 35vh;
+    }
+    .services-header {
+        margin-bottom: 1vh;
+        gap: 8px;
+    }
+    .about-content h2,
+    .contact-info h2 {
+        text-align: center;
+    }
 }
